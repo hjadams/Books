@@ -1,0 +1,43 @@
+﻿@model LList
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Manager
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.lList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { Id = item.Id, Name = item.Name, Manager = item.Manager }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

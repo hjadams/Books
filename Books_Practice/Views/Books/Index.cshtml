@@ -1,0 +1,55 @@
+﻿@model BookList
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Length
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Published
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bookList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Published)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details" , new {Id = @item.Id, Title = @item.Title, Author = @item.Author, Length = @item.Length, Price = @item.Price, Published = @item.Published}, null)               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
